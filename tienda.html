@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | ECOSTREAM</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .shop-container { padding: 120px 5% 50px; text-align: center; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .product-card { background: #fff; padding: 20px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
+        .price { font-size: 1.5rem; font-weight: 700; color: #0056b3; margin: 10px 0; }
+        
+        /* Carrito Sidebar */
+        .cart-sidebar { position: fixed; right: -400px; top: 0; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 30px; display: flex; flex-direction: column; }
+        .cart-sidebar.active { right: 0; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        .cart-icon { cursor: pointer; position: relative; font-size: 1.2rem; }
+        .cart-badge { background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -10px; right: -10px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ECO<span>STREAM</span></div>
+        <div style="display:flex; gap: 20px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #1a1a1a;">Inicio</a>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span class="cart-badge" id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="shop-container">
+        <h1>Nuestras Botellas NFC</h1>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="botellas.jpg" alt="Moss Green">
+                <h3>Edición Moss Green</h3>
+                <div class="price">24.90€</div>
+                <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" onclick="addToCart('Moss Green', 24.90)">Añadir al Carrito</button>
+            </div>
+            <div class="product-card">
+                <img src="botellas.jpg" alt="Sky Blue" style="filter: hue-rotate(160deg);">
+                <h3>Edición Sky Blue</h3>
+                <div class="price">24.90€</div>
+                <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" onclick="addToCart('Sky Blue', 24.90)">Añadir al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2>Tu Carrito</h2>
+            <button onclick="toggleCart()" style="background:none; border:none; font-size: 1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <div id="cart-items-container" style="flex-grow:1; overflow-y:auto;">
+            <p style="color:#999; text-align: center;">El carrito está vacío</p>
+        </div>
+        <div style="border-top: 2px solid #eee; padding-top: 20px;">
+            <div style="display:flex; justify-content: space-between; margin-bottom: 15px;">
+                <strong>Total:</strong> <span id="cart-total">0.00€</span>
+            </div>
+            <button style="width:100%; background:#28a745; color:white; border:none; padding:15px; border-radius:10px; font-weight:700; cursor:pointer;">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
