@@ -1,8 +1,10 @@
 :root {
-    --primary: #0056b3;
-    --secondary: #28a745;
+    /* Nueva paleta de azules */
+    --primary: #0056b3;       /* Azul Principal */
+    --secondary: #00a8e8;     /* Azul Celeste para detalles */
+    --accent: #003459;        /* Azul Oscuro para contraste */
+    --bg-light: #f0f7ff;      /* Fondo azul muy suave */
     --dark: #1a1a1a;
-    --light: #f8f9fa;
     --white: #ffffff;
 }
 
@@ -29,7 +31,7 @@ nav {
     position: fixed;
     width: 100%;
     z-index: 100;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #d0e6ff; /* Azulado */
 }
 
 .logo {
@@ -40,12 +42,13 @@ nav {
 
 .logo span { color: var(--secondary); }
 
-.authors { font-weight: 300; font-size: 0.9rem; color: #666; }
+.authors { font-weight: 300; font-size: 0.9rem; color: #5a7d9a; }
 
 /* Hero */
 .hero {
     padding: 180px 5% 100px;
-    background: radial-gradient(circle at top right, #eef7ff, #ffffff);
+    /* Gradiente más azulado */
+    background: radial-gradient(circle at top right, #d0e6ff, #ffffff);
     text-align: center;
 }
 
@@ -62,13 +65,14 @@ nav {
     font-size: 3.5rem;
     margin: 20px 0;
     line-height: 1.1;
+    color: var(--accent);
 }
 
-.highlight { color: var(--primary); }
+.highlight { color: var(--secondary); }
 
 .hero p {
     font-size: 1.2rem;
-    color: #555;
+    color: #4a5a6a;
     max-width: 600px;
     margin: 0 auto 30px;
 }
@@ -81,7 +85,10 @@ nav {
     text-decoration: none;
     font-weight: 700;
     margin-right: 15px;
+    transition: 0.3s;
 }
+
+.btn-primary:hover { background: var(--accent); }
 
 .btn-secondary {
     border: 2px solid var(--primary);
@@ -90,12 +97,15 @@ nav {
     border-radius: 10px;
     text-decoration: none;
     font-weight: 700;
+    transition: 0.3s;
 }
+
+.btn-secondary:hover { background: #e1f0ff; }
 
 /* Producto */
 .product-showcase {
     padding: 100px 5%;
-    background: var(--light);
+    background: var(--bg-light);
 }
 
 .product-grid {
@@ -109,12 +119,14 @@ nav {
     position: relative;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    width: 300px;
+    box-shadow: 0 25px 50px rgba(0,86,179,0.15); /* Sombra azulada */
+
 }
 
 .product-image img {
-    width: 700px;
-    height: 600px;
+    width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -130,17 +142,6 @@ nav {
     font-weight: 700;
 }
 
-.features {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.features li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-}
-
 .features li::before {
     content: '✓';
     position: absolute;
@@ -149,22 +150,20 @@ nav {
     font-weight: bold;
 }
 
-/* Ayudas */
-.section-ayudas { padding: 100px 5%; }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 15px; }
-.section-desc { text-align: center; color: #666; margin-bottom: 50px; }
-
-.ayudas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Gamificación - Ahora en azul */
+#gamificacion {
+    background: var(--accent) !important; /* Azul profundo */
 }
+
+/* Ayudas */
+.section-ayudas { padding: 100px 5%; background: white; }
+.section-title { color: var(--accent); }
 
 .ayuda-card {
     padding: 40px;
-    border: 1px solid #eee;
+    border: 1px solid #d0e6ff;
     border-radius: 20px;
-    transition: 0.3s;
+    background: white;
 }
 
 .ayuda-card.highlighted {
@@ -172,14 +171,8 @@ nav {
     color: white;
 }
 
-.ayuda-card.highlighted h3, .ayuda-card.highlighted p { color: white; }
-
-.ayuda-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-
-.icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-
 footer {
-    background: var(--dark);
+    background: var(--accent);
     color: white;
     text-align: center;
     padding: 50px 5%;

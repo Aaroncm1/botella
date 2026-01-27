@@ -3,68 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda | ECOSTREAM</title>
+    <title>Tienda Oficial | ECOSTREAM</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        .shop-container { padding: 120px 5% 50px; text-align: center; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .product-card { background: #fff; padding: 20px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
-        .price { font-size: 1.5rem; font-weight: 700; color: #0056b3; margin: 10px 0; }
-        
-        /* Carrito Sidebar */
-        .cart-sidebar { position: fixed; right: -400px; top: 0; width: 350px; height: 100%; background: white; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.3s; z-index: 1000; padding: 30px; display: flex; flex-direction: column; }
+        :root {
+            --shop-bg: #f0f7ff;
+            --card-shadow: rgba(0, 86, 179, 0.1);
+        }
+
+        body { background-color: var(--shop-bg); }
+
+        .shop-container { 
+            padding: 150px 5% 80px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+        }
+
+        .shop-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .shop-header h1 {
+            color: var(--accent);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .shop-header p { color: #5a7d9a; font-size: 1.1rem; }
+
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+
+        .product-card { 
+            background: #fff; 
+            padding: 25px; 
+            border-radius: 30px; 
+            border: 1px solid #d0e6ff; 
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px var(--card-shadow);
+            border-color: var(--secondary);
+        }
+
+        .product-card img { 
+            width: 100%; 
+            border-radius: 20px; 
+            margin-bottom: 20px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img { transform: scale(1.05); }
+
+        .product-card h3 { 
+            color: var(--accent); 
+            font-size: 1.4rem; 
+            margin-bottom: 10px; 
+        }
+
+        .price { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            margin: 10px 0 20px; 
+        }
+
+        .btn-add {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-add:hover { background: var(--accent); }
+
+        /* Estilos del Carrito lateral */
+        .cart-sidebar { 
+            position: fixed; 
+            right: -450px; 
+            top: 0; 
+            width: 400px; 
+            height: 100%; 
+            background: white; 
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1); 
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            z-index: 1000; 
+            padding: 40px; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
         .cart-sidebar.active { right: 0; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
-        .cart-icon { cursor: pointer; position: relative; font-size: 1.2rem; }
-        .cart-badge { background: #28a745; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -10px; right: -10px; }
+
+        .cart-item { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            margin-bottom: 20px; 
+            padding: 15px; 
+            background: #f8fbff;
+            border-radius: 15px;
+            border: 1px solid #e1f0ff;
+        }
+
+        .cart-icon { 
+            cursor: pointer; 
+            position: relative; 
+            background: #e1f0ff;
+            padding: 10px 15px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .cart-icon:hover { background: #d0e6ff; }
+
+        .cart-badge { 
+            background: var(--secondary); 
+            color: white; 
+            font-size: 0.75rem; 
+            padding: 3px 8px; 
+            border-radius: 50px; 
+            position: absolute; 
+            top: -10px; 
+            right: -10px;
+            border: 2px solid white;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover { background: var(--primary); transform: scale(1.02); }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">ECO<span>STREAM</span></div>
-        <div style="display:flex; gap: 20px; align-items: center;">
-            <a href="index.html" style="text-decoration: none; color: #1a1a1a;">Inicio</a>
+        <div style="display:flex; gap: 25px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #5a7d9a; font-weight: 700;">Inicio</a>
             <div class="cart-icon" onclick="toggleCart()">
-                🛒 <span class="cart-badge" id="cart-count">0</span>
+                <span>🛒 Carrito</span> <span class="cart-badge" id="cart-count">0</span>
             </div>
         </div>
     </nav>
 
     <main class="shop-container">
-        <h1>Nuestras Botellas NFC</h1>
+        <div class="shop-header">
+            <h1>Colección </h1>
+            <p>Botellas inteligentes personalizadas con tecnología NFC integrada.</p>
+        </div>
+
         <div class="products-grid">
             <div class="product-card">
-                <img src="botellas.jpg" alt="Moss Green">
-                <h3>Edición Moss Green</h3>
-                <div class="price">24.90€</div>
-                <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" onclick="addToCart('Moss Green', 24.90)">Añadir al Carrito</button>
-            </div>
-            <div class="product-card">
-                <img src="botellas.jpg" alt="Sky Blue" style="filter: hue-rotate(160deg);">
+                <img src="botellaazul.jpg" alt="Moss Green">
                 <h3>Edición Sky Blue</h3>
+                <p style="color: #666; font-size: 0.9rem;">Acero inoxidable - Mate</p>
                 <div class="price">24.90€</div>
-                <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" onclick="addToCart('Sky Blue', 24.90)">Añadir al Carrito</button>
+                <button class="btn-add" onclick="addToCart('Moss Green', 24.90)">
+                    Añadir al Carrito
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="azuloscuro.jpg" alt="Sky Blue" style="filter: hue-rotate(160deg);">
+                <h3>Edición wood</h3>
+                <p style="color: #666; font-size: 0.9rem;">Acero inoxidable - Brillo</p>
+                <div class="price">24.90€</div>
+                <button class="btn-add" onclick="addToCart('Sky Blue', 24.90)">
+                    Añadir al Carrito
+                </button>
+            </div>
+
+            <div class="product-card">
+                <img src="botellas.jpg" alt="Arctic White" style="filter: grayscale(1) brightness(1.2);">
+                <h3>Pack Arctic White</h3>
+                <p style="color: #666; font-size: 0.9rem;">Acero inoxidable - Pure</p>
+                <div class="price">100€</div>
+                <button class="btn-add" onclick="addToCart('Arctic White', 24.90)">
+                    Añadir al Carrito
+                </button>
             </div>
         </div>
     </main>
 
     <div id="cart-sidebar" class="cart-sidebar">
         <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-            <h2>Tu Carrito</h2>
-            <button onclick="toggleCart()" style="background:none; border:none; font-size: 1.5rem; cursor:pointer;">&times;</button>
+            <h2 style="color: var(--accent);">Tu Carrito</h2>
+            <button onclick="toggleCart()" style="background:none; border:none; font-size: 2rem; cursor:pointer; color: var(--primary);">&times;</button>
         </div>
+        
         <div id="cart-items-container" style="flex-grow:1; overflow-y:auto;">
-            <p style="color:#999; text-align: center;">El carrito está vacío</p>
-        </div>
-        <div style="border-top: 2px solid #eee; padding-top: 20px;">
-            <div style="display:flex; justify-content: space-between; margin-bottom: 15px;">
-                <strong>Total:</strong> <span id="cart-total">0.00€</span>
             </div>
-            <button style="width:100%; background:#28a745; color:white; border:none; padding:15px; border-radius:10px; font-weight:700; cursor:pointer;">Finalizar Pedido</button>
+
+        <div style="border-top: 2px solid #f0f7ff; padding-top: 25px; margin-top: 20px;">
+            <div style="display:flex; justify-content: space-between; margin-bottom: 20px; font-size: 1.2rem;">
+                <strong style="color: var(--accent);">Total:</strong> 
+                <span id="cart-total" style="color: var(--primary); font-weight: 700;">0.00€</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+            <p style="text-align:center; font-size: 0.8rem; color: #999; margin-top: 15px;">Pago seguro encriptado</p>
         </div>
     </div>
 
