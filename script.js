@@ -41,3 +41,8 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartUI();
 }
+// Simulación de recordatorio de la App ECOSTREAM
+window.onload = function() {
+    console.log("%c ECOSTREAM: Configura tu peso y sexo en la App para optimizar tu hidratación.", "color: #00a8e8; font-weight: bold;");
+    console.log("%c 🧼 Recordatorio: Tu última limpieza fue hace 12h. ¡Mantén tu botella sana!", "color: #0056b3;");
+};

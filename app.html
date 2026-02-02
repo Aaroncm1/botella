@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOSTREAM App | Salud y Tecnología</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #00a8e8;
+            --accent: #003459;
+            --bg-light: #f0f7ff;
+        }
+
+        body { background-color: white; font-family: 'Outfit', sans-serif; }
+
+        /* Estilo para el Hero de la App */
+        .app-hero {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            color: white;
+            padding: 150px 5% 100px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .app-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .app-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        /* Tarjetas de Presentación */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,86,179,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .icon-box {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; }
+        .card p { color: #5a7d9a; line-height: 1.6; }
+
+        /* Sección de Registro de Salud */
+        .salud-form-mockup {
+            background: var(--bg-light);
+            padding: 60px 5%;
+            border-radius: 50px;
+            margin: 50px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .form-text { flex: 1; min-width: 300px; }
+        .form-visual { 
+            flex: 1; 
+            min-width: 300px; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #e1f0ff;
+        }
+
+        .highlight-red { color: #ff4b2b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ECO<span>STREAM</span></div>
+        <div class="nav-links">
+            <a href="index.html" style="text-decoration:none; color: #666;">← Volver al Inicio</a>
+        </div>
+        <div class="authors">Daniel Li & Aarón Mollá</div>
+    </nav>
+
+    <header class="app-hero">
+        <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">TECNOLOGÍA NFC & SALUD</span>
+        <h1>Más que una Botella, un <span style="color: var(--secondary);">Asistente</span></h1>
+        <p>Resolvemos el problema de la higiene invisible y la deshidratación mediante inteligencia colectiva y personalización biométrica.</p>
+    </header>
+
+    <main>
+        <div class="info-grid">
+            <div class="card">
+                <span class="icon-box">🧼</span>
+                <h3>Higiene Garantizada</h3>
+                <p>El 90% de los usuarios no lavan su botella a diario. Nuestro chip NFC detecta ciclos de lavado. Si hay riesgo de bacterias, la App bloquea tus puntos hasta que desinfectes.</p>
+            </div>
+
+            <div class="card" style="border: 2px solid var(--secondary);">
+                <span class="icon-box">📱</span>
+                <h3>App ECOSTREAM</h3>
+                <p>Notificaciones inteligentes. No te avisamos "porque sí", te avisamos cuando tus niveles de hidratación bajan según tu actividad física diaria.</p>
+            </div>
+
+            <div class="card">
+                <span class="icon-box">🦠</span>
+                <h3 class="highlight-red">Adiós al Biofilm</h3>
+                <p>El agua estancada genera una capa viscosa invisible llamada Biofilm, un refugio perfecto para moho y patógenos que causan problemas gastrointestinales.</p>
+            </div>
+        </div>
+
+        <section class="salud-form-mockup">
+            <div class="form-text">
+                <h2 style="color: var(--accent); font-size: 2.5rem;">Hidratación a medida</h2>
+                <p style="color: #5a7d9a; font-size: 1.1rem; margin-top: 20px;">
+                    No todos los cuerpos son iguales. Al iniciar, la App crea un algoritmo único para ti basado en tus datos médicos y físicos.
+                </p>
+            </div>
+            <div class="form-visual">
+                <h4 style="margin-bottom: 20px; color: var(--primary);">Configuración Inicial:</h4>
+                <div class="form-item"><span>⚖️ Peso Corporal</span> <strong>75 kg</strong></div>
+                <div class="form-item"><span>📏 Altura</span> <strong>1.80 m</strong></div>
+                <div class="form-item"><span>🚻 Sexo</span> <strong>Personalizado</strong></div>
+                <div class="form-item"><span>🎂 Edad</span> <strong>24 años</strong></div>
+                <div class="form-item"><span>🏥 Condición Médica</span> <strong>Ninguna / Específica</strong></div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <button class="btn-primary" style="width: 100%;">Generar Plan de Salud</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #999;">
+        <p>Presentación Proyecto ECOSTREAM - Daniel Li & Aarón Mollá</p>
+    </footer>
+
+</body>
+</html>
