@@ -12,9 +12,10 @@
             --secondary: #00a8e8;
             --accent: #003459;
             --bg-light: #f0f7ff;
+            --danger: #ff4b2b;
         }
 
-        body { background-color: white; font-family: 'Outfit', sans-serif; }
+        body { background-color: white; font-family: 'Outfit', sans-serif; scroll-behavior: smooth;}
 
         /* Estilo para el Hero de la App */
         .app-hero {
@@ -26,14 +27,32 @@
         }
 
         .app-hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        .app-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .app-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+
+        /* Sección de Problemas Reales */
+        .problem-section {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: #fff;
+            border-top: 5px solid var(--danger);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
 
         /* Tarjetas de Presentación */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            padding: 80px 5%;
+            padding: 50px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -49,16 +68,10 @@
 
         .card:hover { transform: translateY(-10px); }
 
-        .icon-box {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
+        .icon-box { font-size: 4rem; margin-bottom: 20px; display: block; }
         .card h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; }
         .card p { color: #5a7d9a; line-height: 1.6; }
 
-        /* Sección de Registro de Salud */
         .salud-form-mockup {
             background: var(--bg-light);
             padding: 60px 5%;
@@ -86,8 +99,6 @@
             padding: 15px 0;
             border-bottom: 1px solid #e1f0ff;
         }
-
-        .highlight-red { color: #ff4b2b; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -101,29 +112,47 @@
     </nav>
 
     <header class="app-hero">
-        <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">TECNOLOGÍA NFC & SALUD</span>
-        <h1>Más que una Botella, un <span style="color: var(--secondary);">Asistente</span></h1>
-        <p>Resolvemos el problema de la higiene invisible y la deshidratación mediante inteligencia colectiva y personalización biométrica.</p>
+        <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">LA REVOLUCIÓN DE LA HIDRATACIÓN</span>
+        <h1>¿Por qué ECOSTREAM?</h1>
+        <p>Hoy en día, sobre todo los jóvenes, sustituyen el agua por energéticas y cafés. No solo es un problema de España, es una crisis global de deshidratación que daña el cuerpo.</p>
     </header>
 
     <main>
+        <section class="problem-section">
+            <div class="problem-card">
+                <span style="font-size: 2.5rem;">⚡</span>
+                <h3 style="color: var(--accent); margin: 15px 0;">energéticas"</h3>
+                <p style="color: #666; font-size: 0.95rem;">Combatimos el consumo excesivo de bebidas estimulantes facilitando el acceso al agua pura, personalizada según tu metabolismo.</p>
+            </div>
+            <div class="problem-card" style="border-top-color: var(--secondary);">
+                <span style="font-size: 2.5rem;">♻️</span>
+                <h3 style="color: var(--accent); margin: 15px 0;">Más allá del Reciclaje</h3>
+                <p style="color: #666; font-size: 0.95rem;">Reciclar plástico ayuda, pero **reutilizar** es la clave. Eliminamos la necesidad de botellas de un solo uso en empresas y hogares.</p>
+            </div>
+            <div class="problem-card">
+                <span style="font-size: 2.5rem;">🛡️</span>
+                <h3 style="color: var(--accent); margin: 15px 0;">Inoxidable ≠ Limpio</h3>
+                <p style="color: #666; font-size: 0.95rem;">Aunque nuestras botellas son de acero inoxidable, las bacterias crecen igual. La App te obliga a cuidarte.</p>
+            </div>
+        </section>
+
         <div class="info-grid">
             <div class="card">
                 <span class="icon-box">🧼</span>
                 <h3>Higiene Garantizada</h3>
-                <p>El 90% de los usuarios no lavan su botella a diario. Nuestro chip NFC detecta ciclos de lavado. Si hay riesgo de bacterias, la App bloquea tus puntos hasta que desinfectes.</p>
+                <p>La gente piensa que su botella nunca se ensucia. Por eso, enviamos <strong>recordatorios semanales</strong>. Si no registras la limpieza vía NFC, los Puntos Verdes se bloquean.</p>
             </div>
 
             <div class="card" style="border: 2px solid var(--secondary);">
                 <span class="icon-box">📱</span>
-                <h3>App ECOSTREAM</h3>
-                <p>Notificaciones inteligentes. No te avisamos "porque sí", te avisamos cuando tus niveles de hidratación bajan según tu actividad física diaria.</p>
+                <h3>App Inteligente</h3>
+                <p>Notificaciones basadas en datos reales. Te avisamos cuando tus niveles de hidratación bajan según tu peso, altura y actividad física.</p>
             </div>
 
             <div class="card">
                 <span class="icon-box">🦠</span>
-                <h3 class="highlight-red">Adiós al Biofilm</h3>
-                <p>El agua estancada genera una capa viscosa invisible llamada Biofilm, un refugio perfecto para moho y patógenos que causan problemas gastrointestinales.</p>
+                <h3 style="color: var(--danger);">Adiós al Biofilm</h3>
+                <p>El agua estancada genera una capa bacteriana invisible. Nuestra App educa al usuario para evitar infecciones gastrointestinales y problemas de salud.</p>
             </div>
         </div>
 
@@ -131,7 +160,7 @@
             <div class="form-text">
                 <h2 style="color: var(--accent); font-size: 2.5rem;">Hidratación a medida</h2>
                 <p style="color: #5a7d9a; font-size: 1.1rem; margin-top: 20px;">
-                    No todos los cuerpos son iguales. Al iniciar, la App crea un algoritmo único para ti basado en tus datos médicos y físicos.
+                    Creamos un plan de salud basado en tu perfil biométrico. No todos necesitamos la misma cantidad de agua.
                 </p>
             </div>
             <div class="form-visual">
@@ -140,7 +169,7 @@
                 <div class="form-item"><span>📏 Altura</span> <strong>1.80 m</strong></div>
                 <div class="form-item"><span>🚻 Sexo</span> <strong>Personalizado</strong></div>
                 <div class="form-item"><span>🎂 Edad</span> <strong>24 años</strong></div>
-                <div class="form-item"><span>🏥 Condición Médica</span> <strong>Ninguna / Específica</strong></div>
+                <div class="form-item"><span>🏥 Condición Médica</span> <strong>Específica</strong></div>
                 <div style="margin-top: 20px; text-align: center;">
                     <button class="btn-primary" style="width: 100%;">Generar Plan de Salud</button>
                 </div>
@@ -148,8 +177,8 @@
         </section>
     </main>
 
-    <footer style="text-align: center; padding: 40px; color: #999;">
-        <p>Presentación Proyecto ECOSTREAM - Daniel Li & Aarón Mollá</p>
+    <footer style="text-align: center; padding: 40px; color: #999; background: #f9f9f9;">
+        <p>Proyecto ECOSTREAM - Daniel Li & Aarón Mollá</p>
     </footer>
 
 </body>
